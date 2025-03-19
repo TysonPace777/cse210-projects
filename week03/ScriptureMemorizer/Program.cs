@@ -26,6 +26,7 @@ class Program
             else
             {
                 scripture.HideRandomWords(3);
+                // I have the if statement to see if the word is hidden is true, and then choose another.
             }
         }
 
