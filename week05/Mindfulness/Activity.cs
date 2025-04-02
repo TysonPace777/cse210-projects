@@ -2,8 +2,6 @@ public class Activity
 {
 
     protected string _activityName = "";
-    protected string _description = "";
-    protected int _duration = 0;
 
     public Activity(string activityName)
     {
