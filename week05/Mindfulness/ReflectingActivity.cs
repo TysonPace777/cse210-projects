@@ -33,11 +33,15 @@ public class ReflectingActivity : Activity
 
         DisplayQuestions();
         ShowSpinner(2);
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+        Console.ReadLine();
         Console.WriteLine();
-        
+
         GetRandomQuestion();
         DisplayQuestions();
         ShowSpinner(2);
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+        Console.ReadLine();
         Console.WriteLine();
 
         Console.WriteLine("Well done!");
