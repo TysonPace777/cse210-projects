@@ -133,7 +133,8 @@ public class GoalManager
 
     public void RecordEvent()
     {
-
+        Console.Write("Which goal do you want to add an event to? ");
+        string completedGoal = Console.ReadLine();
     }
 
     public void SaveGoals()

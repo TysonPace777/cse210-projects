@@ -24,7 +24,7 @@ public abstract class ChecklistGoal : Goal
 
     public override string GetDetailsString()
     {
-        return "";
+        return $"{_shortName};{_description};{_points};{_amountCompleted}";
     }
 
     public override string GetStringRepresentation()
