@@ -1,4 +1,4 @@
-public abstract class SimpleGoal : Goal
+public class SimpleGoal : Goal
 {
     private bool _isComplete = false;
 
@@ -20,6 +20,15 @@ public abstract class SimpleGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        string completeVar = "";
+        if (_isComplete == false)
+        {
+            completeVar = "[ ]";
+        }
+        else if (_isComplete == true)
+        {
+            completeVar = "[X]";
+        }
+        return $"{completeVar} {_shortName} ({_description})";
     }
 }
