@@ -2,33 +2,36 @@ public class SimpleGoal : Goal
 {
     private bool _isComplete = false;
 
-    public SimpleGoal(string name, string description, int points, bool isComplete)
+    public SimpleGoal(string name, string description, int points)
     : base(name, description, points)
     {
-        _isComplete = isComplete;
     }
 
     public override void RecordEvent()
     {
-        throw new NotImplementedException();
+       if (_isComplete)
+        {
+            Console.WriteLine("Goal already completed");
+        }
+        else
+        {
+            _isComplete = true;
+            Console.WriteLine($"You earned {_points} points!");
+        }
     }
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        return _isComplete;
+    }
+
+    public void SetComplete(bool complete)
+    {
+        _isComplete = complete;
     }
 
     public override string GetStringRepresentation()
     {
-        string completeVar = "";
-        if (_isComplete == false)
-        {
-            completeVar = "[ ]";
-        }
-        else if (_isComplete == true)
-        {
-            completeVar = "[X]";
-        }
-        return $"{completeVar} {_shortName} ({_description})";
+        return $"SimpleGoal;{_shortName};{_description};{_points};{_isComplete}";
     }
 }

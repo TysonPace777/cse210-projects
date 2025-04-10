@@ -1,4 +1,4 @@
-public abstract class ChecklistGoal : Goal
+public class ChecklistGoal : Goal
 {
     private int _amountCompleted = 0;
     private int _target = 0;
@@ -14,21 +14,36 @@ public abstract class ChecklistGoal : Goal
 
     public override void RecordEvent()
     {
-        throw new NotImplementedException();
+        if (_amountCompleted < _target)
+        {
+            _amountCompleted++;
+        }
+    }
+
+    public override int GetPointsEarned()
+    {
+        if (_amountCompleted == _target)
+        {
+            return _points + _bonus;
+        }
+        else
+        {
+            return _points;
+        }
     }
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        return _amountCompleted >= _target;
     }
 
     public override string GetDetailsString()
     {
-        return $"{_shortName};{_description};{_points};{_amountCompleted}";
+        return $"{_amountCompleted}/{_target} {_shortName} ({_description})";
     }
 
     public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        return $"ChecklistGoal;{_shortName};{_description};{_points};{_target};{_bonus};{_amountCompleted}";
     }
 }
